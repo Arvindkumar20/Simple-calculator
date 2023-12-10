@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+           justify-content: center;
+         
+         
+        }
+        .container{
+            display: flex;
+            align-items: center;
+           justify-content: center;
+         
+         
+        }
+        .giveValue{
+            display: none;
+            align-items: center;
+           justify-content: center;
+     margin-top:10px ;
+         & input{
+            width: 120px;
+            height: 20px;
+            border-radius: 4px;
+            border:0.1px solid black;
+            outline: none;
+         }
+        }
+        .display input{
+            width: 360px;
+            padding:20px;
+         
+            background-color: #faf8f8;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 6px rgb(29, 13, 13);
+
+        }
+        .calculator>input:hover{
+            scale: 1.04;
+            font-size: 16px;
+        }
+        .calculator{
+            display: flex;
+            background-color: black;
+            justify-content: space-between;
+            align-items: center;
+            border-top: none;
+            outline: 0;
+            
+        }
+        .calculator input{
+            width: 90px;
+            height: 40px;
+            box-shadow: 3px 3px 3px rgb(119, 112, 112);
+            outline: 0;
+            text-shadow: 3px 3px 4px rgb(247, 245, 245);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+          padding: 15px;
+          font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div>
+    <div class="display">
+        <input type="search" name="display" id="data">
+    </div>
+    <div class="calculator">
+        <input type="button" value="ac" onclick="data.value=' ';">
+        <input type="button" value="del" onclick="data.value=data.value.toString().slice(0,-1);">
+        <input type="button" value="."  onclick="data.value+='.';">
+        <input type="button" value="/"  onclick="data.value+='/';">
+    </div>
+    <div class="calculator">
+        <input type="button" value="1" onclick="data.value+=1;">
+        <input type="button" value="2" onclick="data.value+=2;">
+        <input type="button" value="3" onclick="data.value+=3; ">
+        <input type="button" value="*" onclick="data.value+='*';" >
+    </div>
+    <div class="calculator">
+        <input type="button"  value="4" onclick="data.value+=4;" >
+        <input type="button"  value="5" onclick="data.value+=5;" >
+        <input type="button"  value="6" onclick="data.value+=6;">
+        <input type="button"  value="+" onclick="data.value+='+';">
+    </div>
+    <div class="calculator">
+        <input type="button"  value="7" onclick="data.value+=7;">
+        <input type="button"  value="8" onclick="data.value+=8;">
+        <input type="button"  value="9" onclick="data.value+=9;">
+        <input type="button"  value="-" onclick="data.value+='-';">
+    </div>
+    <div class="calculator">
+        <input type="button"  value="00" onclick="data.value+='00';">
+        <input type="button"  value="0" onclick="data.value+=0;">
+        <input type="button"  value="^" id="power" >
+        <input type="button"  value="=" class="equel" onclick="data.value=eval(data.value)">
+    </div>
+    </div>
+   </div> 
+   <div class="giveValue">
+    <input type="text" id="number" placeholder="number" >
+    <input type="text" id="powerNumber" placeholder="power" >
+    <input type="button" value="answer" id="answer" style="width: 60px; height: 30px;">
+</div>
+   <script>
+    // power ******************************************************************************************************************************************************
+    let power=document.getElementById('power');
+    let  show=document.getElementById('data');
+    let number=document.getElementById('number');
+    let answer=document.getElementById('answer');
+    let powerNumber=document.getElementById('powerNumber');
+    let giveValue=document.querySelector('.giveValue');
+    
+   power.addEventListener('click',function(){
+        giveValue.style.display='flex';
+   });
+answer.addEventListener('click',function(){
+    show.value=Math.pow(number.value,powerNumber.value);
+    if(number.value===''){
+        show.value='please enter only integer or float nunbers';
+    }
+number.value=" ";
+powerNumber.value=" ";
+})
+// let equel=document.querySelector('.equel');
+// let calculatorKey=document.querySelectorAll('input');
+// let find=Array.from(calculatorKey).forEach(element=>{
+
+
+//     function s(){
+//     equel.addEventListener('click',function( ){
+//         show.value=element.value+'='+ eval(data.value);
+//     })
+
+// }
+// s();
+
+   </script>
+</body>
+</html>
